@@ -1,0 +1,19 @@
+<div class="container">
+  <div>
+  <ul>
+    <% @restaurants.each do |r| %>
+      <li><%= link_to r.name, restaurant_path(r) %>
+        <br>
+        <%= link_to "Delete",
+          restaurant_path(r),
+          method: :delete,
+          data: { confirm: "Are you sure to delete #{r.name}?" } %>
+      </li>
+    <% end %>
+  </ul>
+  </div>
+  <hr>
+  <div>
+    <h3><%= link_to "Add a new restaurant to the list", new_restaurant_path %></h3>
+  </div>
+</div>
